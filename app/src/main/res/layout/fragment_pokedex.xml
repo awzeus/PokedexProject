@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray"
+    tools:context=".ui.pokedex.PokedexFragment">
+
+    <!-- Top part of the Screen -->
+
+    <ImageView
+        android:id="@+id/iv_white_card_pokedex"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/rounded_rectangle_white_top"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <ImageView
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:src="@mipmap/ic_launcher_foreground"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:translationY="-25dp"
+        android:translationX="45dp"
+        app:tint="@color/light_opacity"
+        android:tintMode="add"
+        />
+    <TextView
+        android:id="@+id/tv_title_search_pokedex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pokedex_fragment_title"
+        android:textSize="40sp"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/et_search_field_pokedex"
+        />
+    <EditText
+        android:id="@+id/et_search_field_pokedex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/pokedex_fragment_search_hint"
+        android:layout_marginHorizontal="20dp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp"
+        android:background="@drawable/rounded_rectangle_gray"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_search_pokedex"
+        app:layout_constraintBottom_toBottomOf="@id/iv_white_card_pokedex"
+        />
+
+    <!-- No results -->
+
+    <ImageView
+        android:id="@+id/iv_pokeball_pokedex"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:src="@mipmap/ic_launcher_foreground"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_white_card_pokedex"
+        app:layout_constraintBottom_toTopOf="@id/tv_no_results_pokedex"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0.2"
+        />
+    <TextView
+        android:id="@+id/tv_no_results_pokedex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_pokemon"
+        android:textSize="30sp"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_pokeball_pokedex"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        />
+
+
+    <!-- History -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:visibility="visible"
+        android:id="@+id/rv_pokedex_entries"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_white_card_pokedex"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_pokemon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

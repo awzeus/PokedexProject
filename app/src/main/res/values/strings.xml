@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Open Pokedex</string>
+
+    <!-- Menu Titles -->
+    <string name="menu_title_search">Search</string>
+    <string name="menu_title_pokedex">Pokedex</string>
+    <string name="menu_title_discover">Discover</string>
+
+    <!-- Misc-->
+    <string name="no_results">NO RESULTS</string>
+    <string name="no_pokemon">NO PÓKEMON</string>
+
+    <!-- Search fragment labels-->
+    <string name="search_fragment_title">What pokémon are you looking for?</string>
+    <string name="search_fragment_search_hint">Search</string>
+    <string name="search_fragment_history">History</string>
+
+
+    <!-- Search fragment labels-->
+    <string name="pokedex_fragment_title">Your Pokedex!</string>
+    <string name="pokedex_fragment_search_hint">Filter pokedex</string>
+
+
+    <!-- Search fragment labels-->
+    <string name="discover_fragment_title">Discover Pokémon</string>
+
+
+
+</resources>
