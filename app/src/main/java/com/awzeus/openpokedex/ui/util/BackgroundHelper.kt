@@ -4,7 +4,7 @@ import com.awzeus.openpokedex.R
 
 class BackgroundHelper {
 
-    fun getColorForType(type: String): Int = when(type){
+    fun getColorForType(type: String): Int = when(type.lowercase()){
         "normal" -> R.color.type_normal
         "fire" -> R.color.type_fire
         "water" -> R.color.type_water
@@ -25,7 +25,7 @@ class BackgroundHelper {
         else -> R.color.type_normal
     }
 
-    fun getDrawableForType(type: String): Int = when(type){
+    fun getDrawableForType(type: String): Int = when(type.lowercase()){
         "normal" -> R.drawable.rounded_rectangle_normal
         "fire" -> R.drawable.rounded_rectangle_fire
         "water" -> R.drawable.rounded_rectangle_water

@@ -11,7 +11,7 @@
 
     <!-- Top part of the Screen -->
 
-    <ImageView
+    <View
         android:id="@+id/iv_white_card_search"
         android:layout_width="match_parent"
         android:layout_height="250dp"

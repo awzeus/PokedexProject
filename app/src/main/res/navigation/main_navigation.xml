@@ -19,5 +19,18 @@
         android:id="@+id/navigationDiscover"
         android:name="com.awzeus.openpokedex.ui.discover.DiscoverFragment"
         android:label="fragment_discover"
-        tools:layout="@layout/fragment_discover" />
+        tools:layout="@layout/fragment_discover" >
+        <action
+            android:id="@+id/action_navigationDiscover_to_pokemonDetailFragment"
+            app:destination="@id/pokemonDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pokemonDetailFragment"
+        android:name="com.awzeus.openpokedex.ui.detail.PokemonDetailFragment"
+        android:label="fragment_pokemon_detail"
+        tools:layout="@layout/fragment_pokemon_detail" >
+        <argument
+            android:name="pokemon_arg"
+            app:argType="com.awzeus.openpokedex.domain.model.Pokemon" />
+    </fragment>
 </navigation>

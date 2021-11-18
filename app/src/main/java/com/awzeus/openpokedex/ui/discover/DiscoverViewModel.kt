@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.awzeus.openpokedex.data.remote.model.PokemonEntry
-import com.awzeus.openpokedex.domain.GetRandomPokemon
+import com.awzeus.openpokedex.domain.usecase.GetRandomPokemon
 import kotlinx.coroutines.launch
 
 class DiscoverViewModel : ViewModel() {

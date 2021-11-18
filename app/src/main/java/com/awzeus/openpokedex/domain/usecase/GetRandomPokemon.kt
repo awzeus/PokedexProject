@@ -1,4 +1,4 @@
-package com.awzeus.openpokedex.domain
+package com.awzeus.openpokedex.domain.usecase
 
 import com.awzeus.openpokedex.data.remote.model.PokemonEntry
 import com.awzeus.openpokedex.data.repository.PokemonRepository

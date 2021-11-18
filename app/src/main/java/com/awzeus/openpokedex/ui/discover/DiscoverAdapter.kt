@@ -1,25 +1,22 @@
 package com.awzeus.openpokedex.ui.discover
 
-import android.content.res.ColorStateList
-import android.graphics.Color
+
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
-import com.awzeus.openpokedex.R
 import com.awzeus.openpokedex.data.remote.model.PokemonEntry
+import com.awzeus.openpokedex.databinding.ItemPokemonBinding
+import com.awzeus.openpokedex.domain.model.Pokemon
 import com.awzeus.openpokedex.ui.util.BackgroundHelper
+import com.awzeus.openpokedex.ui.util.PokemonListCallback
 import com.squareup.picasso.Picasso
 
-class DiscoverAdapter (val pokemon: List<PokemonEntry>): RecyclerView.Adapter<DiscoverAdapter.PokemonHolder>() {
+class DiscoverAdapter (private val pokemon: List<PokemonEntry>,
+                       private val callBack: PokemonListCallback): RecyclerView.Adapter<DiscoverAdapter.PokemonHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        return PokemonHolder(layoutInflater.inflate(R.layout.item_pokemon, parent, false))
+        val binding = ItemPokemonBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        return PokemonHolder(binding,callBack)
     }
 
     override fun onBindViewHolder(holder: PokemonHolder, position: Int) {
@@ -29,18 +26,27 @@ class DiscoverAdapter (val pokemon: List<PokemonEntry>): RecyclerView.Adapter<Di
     override fun getItemCount(): Int = pokemon.size
 
 
-    class PokemonHolder(val view: View) : RecyclerView.ViewHolder(view){
+    class PokemonHolder(val binding: ItemPokemonBinding, val callBack: PokemonListCallback) : RecyclerView.ViewHolder(binding.root){
         fun render(pokemon: PokemonEntry){
-            val pokemonName = view.findViewById<TextView>(R.id.tv_pokemon_entry_name)
-            val pokemonNumber = view.findViewById<TextView>(R.id.tv_pokemon_entry_number)
-            val pokemonType = view.findViewById<TextView>(R.id.tv_pokemon_entry_type)
-            val pokemonImage = view.findViewById<ImageView>(R.id.tv_pokemon_entry_image)
-            val background = view.findViewById<ConstraintLayout>(R.id.cl_colored_background)
-            pokemonName.text = pokemon.name.replaceFirstChar { it.uppercaseChar() }
-            pokemonNumber.text = "# ${pokemon.id}"
-            pokemonType.text = pokemon.types.get(0).type.name.uppercase()
-            Picasso.get().load(pokemon.sprites.front_default).into(pokemonImage)
-            background.setBackgroundResource(BackgroundHelper().getDrawableForType(pokemon.types.get(0).type.name))
+            binding.tvPokemonEntryName.text = pokemon.name.replaceFirstChar { it.uppercaseChar() }
+            binding.tvPokemonEntryNumber.text = "# ${pokemon.id}"
+            binding.tvPokemonEntryType.text = pokemon.types.get(0).type.name.replaceFirstChar { it.uppercase() }
+            Picasso.get().load(pokemon.sprites.front_default).into(binding.tvPokemonEntryImage)
+            binding.clColoredBackground.setBackgroundResource(BackgroundHelper().getDrawableForType(pokemon.types.get(0).type.name))
+            binding.root.setOnClickListener {
+                callBack.onClick(Pokemon(
+                    pokemon.id,
+                    pokemon.name,
+                    pokemon.types.get(0).type.name,
+                    pokemon.stats.get(0).base_stat,
+                    pokemon.stats.get(1).base_stat,
+                    pokemon.stats.get(2).base_stat,
+                    pokemon.stats.get(3).base_stat,
+                    pokemon.stats.get(4).base_stat,
+                    pokemon.stats.get(5).base_stat,
+                    pokemon.sprites.front_default
+                ))
+            }
         }
 
     }

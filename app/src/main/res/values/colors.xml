@@ -6,8 +6,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="light_gray">#FFCCCCCC</color>
     <color name="light_opacity">#99FFFFFF</color>
-    <color name="dark_opacity">#22000000</color>
+    <color name="medium_light_opacity">#77FFFFFF</color>
     <color name="super_light_opacity">#33FFFFFF</color>
+    <color name="dark_opacity">#22000000</color>
+
     <color name="transparent">#00000000</color>
 
     <!-- Pokemon Types -->
