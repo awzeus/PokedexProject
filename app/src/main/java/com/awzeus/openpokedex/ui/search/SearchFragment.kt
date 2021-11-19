@@ -5,33 +5,64 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import com.awzeus.openpokedex.R
+import com.awzeus.openpokedex.databinding.FragmentSearchBinding
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView.OnEditorActionListener
+import androidx.core.view.isVisible
+import androidx.navigation.fragment.NavHostFragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.awzeus.openpokedex.domain.model.Pokemon
+import com.awzeus.openpokedex.ui.util.ConvertPokemon
+import com.awzeus.openpokedex.ui.util.PokemonListCallback
 
-class SearchFragment : Fragment() {
+
+class SearchFragment : Fragment(), PokemonListCallback {
+    private lateinit var binding: FragmentSearchBinding
     private val searchViewModel: SearchViewModel by viewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_search, container, false)
-        val titleSearch: TextView = view.findViewById(R.id.tv_title_search_search)
 
-        searchViewModel.pokemonHistoryModel.observe(viewLifecycleOwner, Observer {
-            titleSearch.text = it.name
-        })
-
-        titleSearch.setOnClickListener {
-            searchViewModel.pokemonHistoryEntry()
+        binding = FragmentSearchBinding.inflate(inflater, container, false).apply {
+            viewLifecycleOwner
+            searchViewModel
         }
-        return view
+
+        binding.etSearchFieldSearch.setOnEditorActionListener(OnEditorActionListener{ v, actionId, event ->
+                if (actionId == EditorInfo.IME_ACTION_DONE){
+                    searchViewModel.getSinglePokemon(binding.etSearchFieldSearch.text.toString().lowercase())
+                    binding.etSearchFieldSearch.text.clear()
+                    return@OnEditorActionListener true
+                }
+            false
+            })
+
+        searchViewModel.searchModel.observe(viewLifecycleOwner,{ pokemonResult ->
+            if (pokemonResult != null){
+                val directions = SearchFragmentDirections.actionNavigationSearchToPokemonDetailFragment(ConvertPokemon().convertEntrytoPokemon(pokemonResult))
+                NavHostFragment.findNavController(this).navigate(directions)
+                //I had to do this next line because of the live data, I couldn't navigate back. Temporary fix until I find a better solution.
+                searchViewModel.searchModel.postValue(null)
+            }
+        })
+        if (searchViewModel.getListHistory().isNotEmpty()){
+            binding.ivPokeballSearch.isVisible = false
+            binding.tvNoResultsSearch.isVisible = false
+            binding.rvSearchHistory.layoutManager = LinearLayoutManager(view?.context)
+            val adapter = SearchAdapter(searchViewModel.getListHistory().asReversed(),this)
+            binding.rvSearchHistory.adapter = adapter
+        }
+
+        return binding.root
+    }
+
+    override fun onClick(pokemon: Pokemon) {
+        val directions = SearchFragmentDirections.actionNavigationSearchToPokemonDetailFragment(pokemon)
+        NavHostFragment.findNavController(this).navigate(directions)
+        //I had to do this next line because of the live data, I couldn't navigate back. Temporary fix until I find a better solution.
+        searchViewModel.searchModel.postValue(null)
     }
 }

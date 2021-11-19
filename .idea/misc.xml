@@ -47,6 +47,9 @@
         <entry key="..\:/Users/Zeus/AndroidStudioProjects/OpenPokedex/app/src/main/res/layout/item_history.xml" value="0.3385416666666667" />
         <entry key="..\:/Users/Zeus/AndroidStudioProjects/OpenPokedex/app/src/main/res/layout/item_pokemon.xml" value="0.3385416666666667" />
         <entry key="..\:/Users/Zeus/AndroidStudioProjects/OpenPokedex/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3385416666666667" />
+        <entry key="app/src/main/res/layout/fragment_pokemon_detail.xml" value="0.25416666666666665" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.22552083333333334" />
+        <entry key="app/src/main/res/layout/item_history.xml" value="0.36141304347826086" />
       </map>
     </option>
   </component>

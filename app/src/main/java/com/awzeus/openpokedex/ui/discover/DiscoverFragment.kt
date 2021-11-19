@@ -18,11 +18,6 @@ class DiscoverFragment : Fragment(), PokemonListCallback {
     private lateinit var binding: FragmentDiscoverBinding
     private val discoverViewModel: DiscoverViewModel by viewModels()
 
-    companion object {
-        fun newInstance() = DiscoverFragment()
-    }
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,7 +29,6 @@ class DiscoverFragment : Fragment(), PokemonListCallback {
         discoverViewModel.getTenPokemon()
         discoverViewModel.discoverModel.observe(viewLifecycleOwner, Observer { tenPokemon ->
             if (tenPokemon != null) {
-                //TODO update recycler view with this info
                 binding.rvDiscoverEntries.layoutManager = LinearLayoutManager(view?.context)
                 val adapter = DiscoverAdapter(tenPokemon,this)
                 binding.rvDiscoverEntries.adapter = adapter

@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.awzeus.openpokedex.data.remote.model.PokemonEntry
 import com.awzeus.openpokedex.databinding.ItemPokemonBinding
-import com.awzeus.openpokedex.domain.model.Pokemon
 import com.awzeus.openpokedex.ui.util.BackgroundHelper
+import com.awzeus.openpokedex.ui.util.ConvertPokemon
 import com.awzeus.openpokedex.ui.util.PokemonListCallback
 import com.squareup.picasso.Picasso
 
@@ -34,18 +34,7 @@ class DiscoverAdapter (private val pokemon: List<PokemonEntry>,
             Picasso.get().load(pokemon.sprites.front_default).into(binding.tvPokemonEntryImage)
             binding.clColoredBackground.setBackgroundResource(BackgroundHelper().getDrawableForType(pokemon.types.get(0).type.name))
             binding.root.setOnClickListener {
-                callBack.onClick(Pokemon(
-                    pokemon.id,
-                    pokemon.name,
-                    pokemon.types.get(0).type.name,
-                    pokemon.stats.get(0).base_stat,
-                    pokemon.stats.get(1).base_stat,
-                    pokemon.stats.get(2).base_stat,
-                    pokemon.stats.get(3).base_stat,
-                    pokemon.stats.get(4).base_stat,
-                    pokemon.stats.get(5).base_stat,
-                    pokemon.sprites.front_default
-                ))
+                callBack.onClick(ConvertPokemon().convertEntrytoPokemon(pokemon))
             }
         }
 

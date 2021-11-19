@@ -14,7 +14,11 @@
         android:id="@+id/navigationSearch"
         android:name="com.awzeus.openpokedex.ui.search.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_navigationSearch_to_pokemonDetailFragment"
+            app:destination="@id/pokemonDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigationDiscover"
         android:name="com.awzeus.openpokedex.ui.discover.DiscoverFragment"

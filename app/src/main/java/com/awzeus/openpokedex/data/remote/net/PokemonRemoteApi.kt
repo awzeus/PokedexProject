@@ -7,5 +7,5 @@ import retrofit2.http.Path
 
 interface PokemonRemoteApi {
     @GET("pokemon/{id}")
-    suspend fun getPokemonById(@Path("id") id: Int): Response<PokemonEntry>
+    suspend fun getPokemonByCriteria(@Path("id") id: String): Response<PokemonEntry>
 }

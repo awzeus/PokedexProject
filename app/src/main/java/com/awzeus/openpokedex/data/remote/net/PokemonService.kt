@@ -13,11 +13,19 @@ class PokemonService {
         return withContext(Dispatchers.IO) {
             val listOfPokemon = mutableListOf<PokemonEntry>()
             for (x in 1..10){
-                val entry = retrofit.create(PokemonRemoteApi::class.java).getPokemonById((1..898).random())
+                val entry = retrofit.create(PokemonRemoteApi::class.java).getPokemonByCriteria((1..898).random().toString())
                 entry.body()?.let { listOfPokemon.add(it) }
             }
-
             listOfPokemon
+        }
+    }
+
+    suspend fun getSpecificPokemon(searchCriteria: String) : PokemonEntry? {
+        return withContext(Dispatchers.IO){
+            var onePokemon: PokemonEntry? = null
+            val entry = retrofit.create(PokemonRemoteApi::class.java).getPokemonByCriteria(searchCriteria)
+            entry.body()?.let { onePokemon = it }
+            onePokemon
         }
     }
 }

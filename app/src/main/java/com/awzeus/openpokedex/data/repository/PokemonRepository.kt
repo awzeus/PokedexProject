@@ -12,4 +12,10 @@ class PokemonRepository {
         PokemonDataSource.pokemon = response
         return response
     }
+
+    suspend fun getSpecificPokemon(searchCriteria:String) : PokemonEntry? {
+        val response: PokemonEntry? = api.getSpecificPokemon(searchCriteria)
+        PokemonDataSource.singlePokemon = response
+        return response
+    }
 }

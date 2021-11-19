@@ -9,46 +9,43 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import com.awzeus.openpokedex.R
+import com.awzeus.openpokedex.databinding.FragmentPokemonDetailBinding
 import com.awzeus.openpokedex.domain.model.Pokemon
 import com.awzeus.openpokedex.ui.util.BackgroundHelper
 import com.squareup.picasso.Picasso
 
 
 class PokemonDetailFragment : DialogFragment() {
-    //TODO binding
+    private lateinit var binding : FragmentPokemonDetailBinding
     private lateinit var detailPokemon : Pokemon
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-                return inflater.inflate(R.layout.fragment_pokemon_detail, container, false)
+        binding = FragmentPokemonDetailBinding.inflate(inflater,container,false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        detailPokemon = arguments?.getSerializable("pokemon_arg") as Pokemon
-        val backgroundView = view?.findViewById<View>(R.id.v_pokemon_detail_colored_background)
-        val name = view?.findViewById<TextView>(R.id.tv_pokemon_detail_name)
-        val id = view?.findViewById<TextView>(R.id.tv_pokemon_detail_number)
-        val type = view?.findViewById<TextView>(R.id.tv_pokemon_detail_type)
-        val hp = view?.findViewById<TextView>(R.id.tv_pokemon_detail_hp_value)
-        val attack = view?.findViewById<TextView>(R.id.tv_pokemon_detail_attack_value)
-        val specialAttack = view?.findViewById<TextView>(R.id.tv_pokemon_detail_special_attack_value)
-        val defense = view?.findViewById<TextView>(R.id.tv_pokemon_detail_defense_value)
-        val specialDefense = view?.findViewById<TextView>(R.id.tv_pokemon_detail_special_defense_value)
-        val speed = view?.findViewById<TextView>(R.id.tv_pokemon_detail_speed_value)
-        val img = view?.findViewById<ImageView>(R.id.iv_pokemon_detail_pokemon_image)
 
-        backgroundView?.setBackgroundColor(ContextCompat.getColor(view.context,BackgroundHelper().getColorForType(detailPokemon.type)))
-        name?.setText(detailPokemon.name.replaceFirstChar { it.uppercase() })
-        id?.setText("#${detailPokemon.id}")
-        type?.setText(detailPokemon.type.replaceFirstChar { it.uppercase() })
-        hp?.setText(detailPokemon.hp.toString())
-        attack?.setText(detailPokemon.attack.toString())
-        specialAttack?.setText(detailPokemon.specialAttack.toString())
-        defense?.setText(detailPokemon.defense.toString())
-        specialDefense?.setText(detailPokemon.specialDefense.toString())
-        speed?.setText(detailPokemon.speed.toString())
-        Picasso.get().load(detailPokemon.imageUrl).into(img)
+        detailPokemon = arguments?.getSerializable("pokemon_arg") as Pokemon
+
+        binding.vPokemonDetailColoredBackground.setBackgroundColor(ContextCompat.getColor(view.context,BackgroundHelper().getColorForType(detailPokemon.type)))
+        binding.tvPokemonDetailName.text = detailPokemon.name.replaceFirstChar { it.uppercase() }
+        binding.tvPokemonDetailNumber.text = "# ${detailPokemon.id}"
+        binding.tvPokemonDetailType.text = detailPokemon.type.replaceFirstChar { it.uppercase() }
+        binding.tvPokemonDetailHpValue.text = detailPokemon.hp.toString()
+        binding.tvPokemonDetailDefenseValue.text = detailPokemon.defense.toString()
+        binding.tvPokemonDetailSpecialDefenseValue.text = detailPokemon.specialDefense.toString()
+        binding.tvPokemonDetailAttackValue.text = detailPokemon.attack.toString()
+        binding.tvPokemonDetailSpecialAttackValue.text = detailPokemon.specialAttack.toString()
+        binding.tvPokemonDetailSpeedValue.text = detailPokemon.speed.toString()
+        Picasso.get().load(detailPokemon.imageUrl).into(binding.ivPokemonDetailPokemonImage)
+
+        binding.vPokemonDetailClose.setOnClickListener {
+             activity?.supportFragmentManager?.popBackStack()
+        }
+
     }
 }
