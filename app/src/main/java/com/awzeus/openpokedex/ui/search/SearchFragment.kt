@@ -9,9 +9,11 @@ import androidx.fragment.app.viewModels
 import com.awzeus.openpokedex.databinding.FragmentSearchBinding
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView.OnEditorActionListener
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.awzeus.openpokedex.R
 import com.awzeus.openpokedex.domain.model.Pokemon
 import com.awzeus.openpokedex.ui.util.ConvertPokemon
 import com.awzeus.openpokedex.ui.util.PokemonListCallback
@@ -44,8 +46,12 @@ class SearchFragment : Fragment(), PokemonListCallback {
             if (pokemonResult != null){
                 val directions = SearchFragmentDirections.actionNavigationSearchToPokemonDetailFragment(ConvertPokemon().convertEntrytoPokemon(pokemonResult))
                 NavHostFragment.findNavController(this).navigate(directions)
-                //I had to do this next line because of the live data, I couldn't navigate back. Temporary fix until I find a better solution.
+                //I had to do this next line because of the live data, I couldn't navigate back.
+                // (Reason being is that it would navigate back pokemonResult would still be different than null and it would navigate back to the details page.
+                // Temporary fix until I find a better solution. It also affects the NO RESULTS message
                 searchViewModel.searchModel.postValue(null)
+            }else{
+                Toast.makeText(context, getString(R.string.no_results), Toast.LENGTH_SHORT).show()
             }
         })
         if (searchViewModel.getListHistory().isNotEmpty()){
@@ -55,7 +61,6 @@ class SearchFragment : Fragment(), PokemonListCallback {
             val adapter = SearchAdapter(searchViewModel.getListHistory().asReversed(),this)
             binding.rvSearchHistory.adapter = adapter
         }
-
         return binding.root
     }
 

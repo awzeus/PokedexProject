@@ -1,8 +1,6 @@
 package com.awzeus.openpokedex.data.remote.model
 
 import com.google.gson.annotations.SerializedName
-import org.json.JSONArray
-import org.json.JSONObject
 
 data class PokemonEntry(
     @SerializedName("id")

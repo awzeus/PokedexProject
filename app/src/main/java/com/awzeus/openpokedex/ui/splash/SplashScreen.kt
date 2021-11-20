@@ -3,10 +3,6 @@ package com.awzeus.openpokedex.ui.splash
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Window
-import android.view.WindowInsets
-import android.view.WindowInsetsController
-import android.view.WindowManager
 import androidx.lifecycle.ViewModelProvider
 import com.awzeus.openpokedex.MainActivity
 import com.awzeus.openpokedex.R

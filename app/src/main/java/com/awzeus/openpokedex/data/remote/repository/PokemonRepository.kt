@@ -1,6 +1,6 @@
-package com.awzeus.openpokedex.data.repository
+package com.awzeus.openpokedex.data.remote.repository
 
-import com.awzeus.openpokedex.data.local.PokemonDataSource
+import com.awzeus.openpokedex.data.remote.source.PokemonDataSource
 import com.awzeus.openpokedex.data.remote.model.PokemonEntry
 import com.awzeus.openpokedex.data.remote.net.PokemonService
 

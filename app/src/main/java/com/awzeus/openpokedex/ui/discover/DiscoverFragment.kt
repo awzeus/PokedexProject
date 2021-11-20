@@ -45,6 +45,5 @@ class DiscoverFragment : Fragment(), PokemonListCallback {
     override fun onClick(pokemon: Pokemon) {
         val directions = DiscoverFragmentDirections.actionNavigationDiscoverToPokemonDetailFragment(pokemon)
         NavHostFragment.findNavController(this).navigate(directions)
-
     }
 }

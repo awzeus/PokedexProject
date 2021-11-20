@@ -1,4 +1,4 @@
-package com.awzeus.openpokedex.data.local
+package com.awzeus.openpokedex.data.remote.source
 
 import com.awzeus.openpokedex.data.remote.model.PokemonEntry
 

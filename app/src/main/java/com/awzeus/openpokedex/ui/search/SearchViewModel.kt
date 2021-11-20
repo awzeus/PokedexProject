@@ -18,7 +18,9 @@ class SearchViewModel: ViewModel() {
         viewModelScope.launch {
             var result = pokemonResult.invoke(searchCriteria)
             searchModel.postValue(result)
-            pokemonHistoryList.add(result?.let { poke -> ConvertPokemon().convertEntrytoPokemon(poke) }!!)
+            if (result != null){
+                pokemonHistoryList.add(ConvertPokemon().convertEntrytoPokemon(result))
+            }
         }
     }
 

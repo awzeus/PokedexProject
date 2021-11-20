@@ -8,6 +8,7 @@
 
     <!-- Misc-->
     <string name="no_results">NO RESULTS</string>
+    <string name="no_history">NO HISTORY</string>
     <string name="no_pokemon">NO PÓKEMON</string>
 
     <!-- Search fragment labels-->

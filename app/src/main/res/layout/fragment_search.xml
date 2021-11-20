@@ -79,7 +79,7 @@
         android:id="@+id/tv_no_results_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/no_results"
+        android:text="@string/no_history"
         android:textSize="30sp"
         android:padding="10dp"
         android:textColor="@color/black"
