@@ -10,7 +10,7 @@
     >
     <TextView
         android:id="@+id/tv_history_entry_name"
-        android:text="Pikachu"
+        android:text="@string/details_fragment_placeholder_name"
         android:textSize="20sp"
         android:gravity="fill_vertical"
         android:textStyle="bold"
@@ -22,7 +22,7 @@
         android:layout_height="match_parent"/>
     <TextView
         android:id="@+id/tv_history_entry_number"
-        android:text="#35"
+        android:text="@string/details_fragment_placeholder_id"
         android:textSize="18sp"
         android:gravity="center"
         android:layout_gravity=""

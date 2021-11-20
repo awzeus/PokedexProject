@@ -1,7 +1,5 @@
 package com.awzeus.openpokedex.data.remote
 
-import androidx.viewbinding.BuildConfig
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

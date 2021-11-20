@@ -19,6 +19,12 @@ class PokedexViewModel(private val pokedexRepository: PokedexRepository): ViewMo
         }
     }
 
+    fun getFilteredPokemon(query: String){
+        viewModelScope.launch {
+            pokemon.value = pokedexRepository.getFilteredPokemon(query).value
+        }
+    }
+
     class PokemonFactory: ViewModelProvider.Factory{
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if(modelClass.isAssignableFrom(PokedexViewModel::class.java)){

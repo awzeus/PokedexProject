@@ -22,7 +22,7 @@
         />
     <TextView
         android:id="@+id/tv_pokemon_entry_name"
-        android:text="Pikachu"
+        android:text="@string/details_fragment_placeholder_name"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="20sp"
@@ -38,7 +38,7 @@
         />
     <TextView
         android:id="@+id/tv_pokemon_entry_type"
-        android:text="Electric"
+        android:text="@string/details_fragment_placeholder_type"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="10sp"
@@ -64,7 +64,7 @@
         />
     <TextView
         android:id="@+id/tv_pokemon_entry_number"
-        android:text="#35"
+        android:text="@string/details_fragment_placeholder_id"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="12sp"

@@ -6,26 +6,39 @@
     <string name="menu_title_pokedex">Pokedex</string>
     <string name="menu_title_discover">Discover</string>
 
-    <!-- Misc-->
+    <!-- Misc -->
     <string name="no_results">NO RESULTS</string>
     <string name="no_history">NO HISTORY</string>
     <string name="no_pokemon">NO PÓKEMON</string>
 
-    <!-- Search fragment labels-->
+    <!-- Search fragment labels -->
     <string name="search_fragment_title">What pokémon are you looking for?</string>
     <string name="search_fragment_search_hint">Search</string>
     <string name="search_fragment_history">History</string>
 
 
-    <!-- Search fragment labels-->
+    <!-- Search fragment labels -->
     <string name="pokedex_fragment_title">Your Pokedex!</string>
     <string name="pokedex_fragment_search_hint">Filter pokedex</string>
 
 
-    <!-- Search fragment labels-->
+    <!-- Search fragment labels -->
     <string name="discover_fragment_title">Discover Pokémon</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Search fragment labels -->
+    <string name="details_fragment_stats">STATS</string>
+    <string name="details_fragment_hp">HP</string>
+    <string name="details_fragment_attack">ATTACK</string>
+    <string name="details_fragment_defense">DEFENSE</string>
+    <string name="details_fragment_speed">SPEED</string>
+
+    <!-- Placeholders -->
+    <string name="details_fragment_placeholder_name">Pikachu</string>
+    <string name="details_fragment_placeholder_id">#999</string>
+    <string name="details_fragment_placeholder_type">Electric</string>
+    <string name="details_fragment_placeholder_number">999</string>
+
+
 
 
 </resources>

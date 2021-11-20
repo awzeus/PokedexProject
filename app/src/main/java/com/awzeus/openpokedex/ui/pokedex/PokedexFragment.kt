@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -33,6 +34,11 @@ class PokedexFragment : Fragment(), PokemonListCallback {
                 binding.rvPokedexEntries.adapter = adapter
             }
         })
+
+        binding.etSearchFieldPokedex.doOnTextChanged { text, start, before, count ->
+            viewModel.getFilteredPokemon("%${text}%")
+        }
+
 
         viewModel.getAll()
 

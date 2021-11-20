@@ -13,6 +13,10 @@ class PokedexDataSource ( private val pokemonDao: PokemonDao): PokedexRepository
         return MutableLiveData(pokemonDao.getPokemonFromPokedex().map { it.toPokemon() })
     }
 
+    override suspend fun getFilteredPokemon(query: String): LiveData<List<Pokemon>> {
+        return MutableLiveData(pokemonDao.getSearchFromPokedex(query).map {it.toPokemon()})
+    }
+
     override suspend fun add(pokemon: Pokemon) {
         pokemonDao.save(pokemon.toEntity())
     }
