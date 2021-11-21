@@ -14,13 +14,15 @@ You can also save pokemon to your local pokedex as well as discover new pokemon 
 ## Screenshots
 
 ### Splash Screen
-![Open Pokedex Splash Screen](https://i.imgur.com/Hu0iGCk.jpeg)
-
-### Search History Screen (Empty)
-![Open Pokedex History Screen](https://i.imgur.com/xDggiMM.jpeg)
+<p float="left">
+  <img src="https://i.imgur.com/Hu0iGCk.jpeg" width="100" /> 
+</p>
 
 ### Search History Screen
-![Open Pokedex History Screen](https://i.imgur.com/F7JxACy.jpeg)
+<p float="left">
+  <img src="https://i.imgur.com/xDggiMM.jpeg" width="100" />
+  <img src="https://i.imgur.com/F7JxACy.jpeg" width="100" /> 
+</p>
 
 ### Pokedex Screen (Empty)
 ![Open Pokedex MyPokemon Screen](https://i.imgur.com/bKHBdSo.jpeg)
