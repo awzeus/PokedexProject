@@ -15,26 +15,28 @@ You can also save pokemon to your local pokedex as well as discover new pokemon 
 
 ### Splash Screen
 <p float="left">
-  <img src="https://i.imgur.com/Hu0iGCk.jpeg" width="100" /> 
+  <img src="https://i.imgur.com/Hu0iGCk.jpeg" width="300" /> 
 </p>
 
 ### Search History Screen
 <p float="left">
-  <img src="https://i.imgur.com/xDggiMM.jpeg" width="100" />
-  <img src="https://i.imgur.com/F7JxACy.jpeg" width="100" /> 
+  <img src="https://i.imgur.com/xDggiMM.jpeg" width="300" />
+  <img src="https://i.imgur.com/F7JxACy.jpeg" width="300" /> 
 </p>
 
-### Pokedex Screen (Empty)
-![Open Pokedex MyPokemon Screen](https://i.imgur.com/bKHBdSo.jpeg)
-
 ### Pokedex Screen
-![Open Pokedex MyPokemon Screen](https://i.imgur.com/AzuTy7A.jpeg)
-
-### Discover Screen (loading)
-![Open Pokedex Discover Screen](https://i.imgur.com/mYRelH9.jpeg)
+<p float="left">
+  <img src="https://i.imgur.com/bKHBdSo.jpeg" width="300" />
+  <img src="https://i.imgur.com/AzuTy7A.jpeg" width="300" /> 
+</p>
 
 ### Discover Screen
-![Open Pokedex Discover Screen](https://i.imgur.com/w4GOOu5.jpeg)
+<p float="left">
+  <img src="https://i.imgur.com/mYRelH9.jpeg" width="300" />
+  <img src="https://i.imgur.com/w4GOOu5.jpeg" width="300" /> 
+</p>
 
 ### Pokemon Detail Screen
-![Open Pokedex Detail Screen](https://i.imgur.com/7AhZ0hW.jpeg)
+<p float="left">
+  <img src="https://i.imgur.com/7AhZ0hW.jpeg" width="300" /> 
+</p>
