@@ -27,13 +27,14 @@ class PokemonDetailViewModel(private val pokedexRepository: PokedexRepository): 
     fun getPokedexIds(){
         viewModelScope.launch {
             val pokeList = pokedexRepository.getMyPokemon().value
-            //savedIds.postValue(pokeList)
             var pokeIds = mutableListOf<Int>()
             if(!pokeList.isNullOrEmpty()){
                 for(pokemon in pokeList){
                     pokeIds.add(pokemon.id)
                 }
                 savedIds.postValue(pokeIds)
+            }else{
+                savedIds.postValue(listOf())
             }
         }
     }
